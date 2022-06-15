@@ -17,4 +17,5 @@ samples, guidance on mobile development, and a full API reference.
 # toga-flutter
 ![Preview 1](/1.png)
 ![Preview 2](/2.png)
-![Preview 3](/Toga.mp4)
+
+![Blue White Minimal Creative Illustration Short Link Application Online Instagram Story](https://user-images.githubusercontent.com/72802702/173757707-fc711471-6325-4d39-8e53-382f7bba30e1.gif)
