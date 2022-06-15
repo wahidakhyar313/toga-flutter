@@ -47,7 +47,7 @@ class TogaDraft {
       TogaDraft(
           5,
           'Angsana/Sonokembang',
-          'Tradescantia spathacea',
+          '',
           'Angsana terkenal sebagai tanaman pohon penghasil kayu terbesar dengan kualitas tinggi. Selain dimanfaatkan kayunya, ternyata angsana juga merupakan tanaman obat yang memiliki banyak khasiat bagi kesehatan tubuh.',
           'Saponin, falvonoida, minyak atsiri, resin, polifenol dsb',
           'Mengobati batu ginjal, sariawan, bisul, kencing manis, luka bagian luar dan diare.',
@@ -167,7 +167,7 @@ class TogaDraft {
       TogaDraft(
           21,
           'Cakar Ayam',
-          '-',
+          '',
           'Cakar ayam atau dikenal juga dengan nama ande-ande lumut merupakan tanaman hias sekaligus tanaman obat. Daunnya unik menyerupai cakar ayam',
           'Saponin, polifenol, antrakinon, flavonoida',
           'Mengobati kanker dan tumor, serta berbagai penyakit lain seperti hepatitis, batuk, radang paru-paru, tulang patah, diare, infeksi pernapasan, menghentikan pendarahan, mengatasi bengkak, mengatasi panas dalam, dan memperlancar aliran darah.',
@@ -175,7 +175,7 @@ class TogaDraft {
       TogaDraft(
           22,
           'Ceguk',
-          '-',
+          '',
           'Ceguk atau dikenal pula dengan nama melati belanda, udani, bidani, kacekluk. Tanaman obat ini tumbuh merambat dan menghasilkan bunga berwarna merah muda.',
           'Alkaloida, saponin, polifenol, resin, minyak lemak, trigonelina, gom',
           'Mengobati cacingan, sakit telinga, jamur pada kulit, sakit kepala, gangguan pencernaan anak, becek pada wanita, radang ginjal, perut kembung, dan disentri',

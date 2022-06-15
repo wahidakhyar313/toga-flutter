@@ -125,7 +125,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
               Container(
                 margin: const EdgeInsets.only(top: 16),
-                height: size.height * .32,
+                height: size.height * .30,
                 child: ListView.builder(
                     itemCount: _favoritList.length,
                     physics: BouncingScrollPhysics(),
@@ -161,7 +161,7 @@ class _MainScreenState extends State<MainScreen> {
                                     _favoritList[index].nama.toString(),
                                     style: const TextStyle(
                                       color: Colors.white,
-                                      fontSize: 18,
+                                      fontSize: 17,
                                       fontWeight: FontWeight.w300,
                                     ),
                                   ),
