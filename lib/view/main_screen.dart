@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toga_flutter/detail_screen.dart';
+import 'package:toga_flutter/view/detail_screen.dart';
 import 'package:toga_flutter/models/toga_list.dart';
 
 class MainScreen extends StatefulWidget {
@@ -23,25 +23,34 @@ class _MainScreenState extends State<MainScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/images/menu.png",
-              width: 30,
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  width: 2,
-                ),
-                const Text(
-                  'Selamat Datang, Wahid Ahyaruddin',
-                  style: TextStyle(color: Color(0xff55CB95), fontSize: 16.0),
-                ),
-                const Icon(
-                  Icons.keyboard_arrow_down,
-                  color: Color(0xff55CB95),
-                )
-              ],
-            ),
+                "assets/images/menu.png",
+                width: 30,
+              ),
+             Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    width: 2,
+                  ),
+                  RichText(
+                    text: TextSpan(
+                        text: 'Selamat Datang,',
+                        style: const TextStyle(
+                            color: Color(0xff55CB95), fontSize: 13, height: 1.3),
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: ' akhyar313',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xff55CB95), fontSize: 13, height: 1.3))
+                        ]),
+                  ),
+                  const Icon(
+                    Icons.keyboard_arrow_down,
+                    color: Color(0xff55CB95),
+                  )
+                ],
+              ),
             ClipRRect(
               borderRadius: const BorderRadius.all(
                 Radius.circular(10),
@@ -54,7 +63,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ],
         ),
-        centerTitle: false,
+        centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0.0,
       ),
@@ -96,11 +105,8 @@ class _MainScreenState extends State<MainScreen> {
                               hintText: 'Cari Tanaman'),
                         ),
                       ),
-                      Icon(
-                        Icons.keyboard_option_key_outlined,
-                        size: 24,
-                          color: Color(0xff55CB95)
-                      ),
+                      Icon(Icons.keyboard_option_key_outlined,
+                          size: 24, color: Color(0xff55CB95)),
                     ],
                   ),
                 ),

@@ -2,23 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:toga_flutter/models/toga_list.dart';
 import 'package:toga_flutter/animation/fade_animation.dart';
 
-
-class DetailScreen extends StatefulWidget {
+class DetailScreen extends StatelessWidget {
 
   final int id;
 
   const DetailScreen({Key? key, required this.id}) : super(key: key);
 
   @override
-  State<DetailScreen> createState() => _DetailScreenState();
-}
-
-class _DetailScreenState extends State<DetailScreen> {
-  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     List<TogaDraft> _togaList = TogaDraft.getTogaItems();
-
 
     return Scaffold(
       body: Stack(
@@ -31,7 +24,7 @@ class _DetailScreenState extends State<DetailScreen> {
               height: size.height,
               width: double.infinity,
               child: FittedBox(
-                child: Image.network(_togaList[widget.id].imageUrl),
+                child: Image.network(_togaList[id].imageUrl),
                 fit: BoxFit.cover,
               ),
             ),
@@ -101,13 +94,15 @@ class _DetailScreenState extends State<DetailScreen> {
                     delay: .1,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          _togaList[widget.id].nama,
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 30,
-                              fontWeight: FontWeight.w600),
+                      children: <Widget>[
+                        Expanded(
+                          child: Text(
+                            _togaList[id].nama,
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 30,
+                                fontWeight: FontWeight.w600),
+                          ),
                         ),
                       ],
                     ),
@@ -137,7 +132,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                   ),
                                   children: <TextSpan>[
                                     TextSpan(
-                                      text: _togaList[widget.id].namaLatin,
+                                      text: _togaList[id].namaLatin,
                                       style: TextStyle(
                                         color: Colors.black87.withOpacity(.5),
                                         fontStyle: FontStyle.italic,
@@ -155,8 +150,26 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   FadeAnimation(
                     delay: .3,
+                    child: Expanded(
+                      child: Text(
+                        _togaList[id].detail,
+                        textAlign: TextAlign.justify,
+                        style: const TextStyle(
+                          color: Color(0xff686771),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  FadeAnimation(
+                    delay: .3,
                     child: Text(
-                      _togaList[widget.id].detail,
+                      "Kandungan : "+ _togaList[id].kandungan,
+                      textAlign: TextAlign.justify,
                       style: const TextStyle(
                         color: Color(0xff686771),
                         fontWeight: FontWeight.w400,
@@ -170,21 +183,8 @@ class _DetailScreenState extends State<DetailScreen> {
                   FadeAnimation(
                     delay: .3,
                     child: Text(
-                      "Kandungan : "+ _togaList[widget.id].kandungan,
-                      style: const TextStyle(
-                        color: Color(0xff686771),
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  FadeAnimation(
-                    delay: .3,
-                    child: Text(
-                      "Khasiat : "+_togaList[widget.id].manfaat,
+                      "Khasiat : "+_togaList[id].manfaat,
+                      textAlign: TextAlign.justify,
                       style: const TextStyle(
                         color: Color(0xff686771),
                         fontWeight: FontWeight.w400,
@@ -205,7 +205,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: FavoriteButton(),
                           decoration: BoxDecoration(
                             borderRadius:
-                                const BorderRadius.all(Radius.circular(10)),
+                            const BorderRadius.all(Radius.circular(10)),
                             border: Border.all(
                               color: Color(0xff55CB95),
                             ),
@@ -215,27 +215,27 @@ class _DetailScreenState extends State<DetailScreen> {
                           width: 9,
                         ),
                         Expanded(
-                            child: Container(
-                              padding: const EdgeInsets.all(10),
-                              child: const Center(
-                                  child: Text(
-                                    'Lihat Cara Meramu',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18.0,
-                                    ),
-                                  ),
-                              ),
-                              decoration: BoxDecoration(
-                                color: Color(0xff55CB95),
-                                border: Border.all(
-                                  color: Color(0xff55CB95),
+                          child: Container(
+                            padding: const EdgeInsets.all(10),
+                            child: const Center(
+                              child: Text(
+                                'Lihat Cara Meramu',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18.0,
                                 ),
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(10)),
                               ),
                             ),
+                            decoration: BoxDecoration(
+                              color: Color(0xff55CB95),
+                              border: Border.all(
+                                color: Color(0xff55CB95),
+                              ),
+                              borderRadius:
+                              const BorderRadius.all(Radius.circular(10)),
+                            ),
                           ),
+                        ),
                       ],
                     ),
                   ),
