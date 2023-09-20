@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toga_flutter/models/toga_list.dart';
-import 'package:toga_flutter/animation/fade_animation.dart';
 
 class DetailScreen extends StatelessWidget {
-
   final int id;
 
   const DetailScreen({Key? key, required this.id}) : super(key: key);
@@ -37,8 +35,11 @@ class DetailScreen extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                    color: Colors.black87.withOpacity(.3),
-                    borderRadius: const BorderRadius.all(Radius.circular(10))),
+                  color: Colors.black87.withOpacity(.3),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
                 child: const Center(
                   child: Icon(
                     Icons.arrow_back_ios_outlined,
@@ -56,8 +57,11 @@ class DetailScreen extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                    color: Colors.black87.withOpacity(.3),
-                    borderRadius: const BorderRadius.all(Radius.circular(10))),
+                  color: Colors.black87.withOpacity(.3),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
                 child: const Center(
                   child: Icon(
                     Icons.more_vert_outlined,
@@ -75,11 +79,12 @@ class DetailScreen extends StatelessWidget {
               height: size.height * .7,
               width: size.width,
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.center,
-                      end: Alignment.topCenter,
-                      stops: const [0, 1],
-                      colors: [Colors.white, Colors.white.withOpacity(.03)])),
+                gradient: LinearGradient(
+                    begin: Alignment.center,
+                    end: Alignment.topCenter,
+                    stops: const [0, 1],
+                    colors: [Colors.white, Colors.white.withOpacity(.03)]),
+              ),
             ),
           ),
           Positioned(
@@ -90,154 +95,128 @@ class DetailScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  FadeAnimation(
-                    delay: .1,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Expanded(
-                          child: Text(
-                            _togaList[id].nama,
-                            style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 30,
-                                fontWeight: FontWeight.w600),
-                          ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          _togaList[id].nama,
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w600),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 2,
                   ),
-                  FadeAnimation(
-                    delay: .2,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Icon(
-                              Icons.add_location_alt_outlined,
-                              color: Color(0xff55CB95),
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            RichText(
-                              text: TextSpan(
-                                  style: TextStyle(
-                                    color: Colors.black87.withOpacity(.5),
-                                  ),
-                                  children: <TextSpan>[
-                                    TextSpan(
-                                      text: _togaList[id].namaLatin,
-                                      style: TextStyle(
-                                        color: Colors.black87.withOpacity(.5),
-                                        fontStyle: FontStyle.italic,
-                                      ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Icon(
+                            Icons.add_location_alt_outlined,
+                            color: Color(0xff55CB95),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          RichText(
+                            text: TextSpan(
+                                style: TextStyle(
+                                  color: Colors.black87.withOpacity(.5),
+                                ),
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text: _togaList[id].namaLatin,
+                                    style: TextStyle(
+                                      color: Colors.black87.withOpacity(.5),
+                                      fontStyle: FontStyle.italic,
                                     ),
-                                  ]),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                                  ),
+                                ]),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  FadeAnimation(
-                    delay: .3,
-                    child: Expanded(
-                      child: Text(
-                        _togaList[id].detail,
-                        textAlign: TextAlign.justify,
-                        style: const TextStyle(
-                          color: Color(0xff686771),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                        ),
-                      ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "Kandungan : " + _togaList[id].kandungan,
+                    textAlign: TextAlign.justify,
+                    style: const TextStyle(
+                      color: Color(0xff686771),
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
                     ),
                   ),
                   const SizedBox(
                     height: 5,
                   ),
-                  FadeAnimation(
-                    delay: .3,
-                    child: Text(
-                      "Kandungan : "+ _togaList[id].kandungan,
-                      textAlign: TextAlign.justify,
-                      style: const TextStyle(
-                        color: Color(0xff686771),
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  FadeAnimation(
-                    delay: .3,
-                    child: Text(
-                      "Khasiat : "+_togaList[id].manfaat,
-                      textAlign: TextAlign.justify,
-                      style: const TextStyle(
-                        color: Color(0xff686771),
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                      ),
+                  Text(
+                    "Khasiat : " + _togaList[id].manfaat,
+                    textAlign: TextAlign.justify,
+                    style: const TextStyle(
+                      color: Color(0xff686771),
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
                     ),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  FadeAnimation(
-                    delay: .4,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          child: FavoriteButton(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        child: FavoriteButton(),
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10)),
+                          border: Border.all(
+                            color: Color(0xff55CB95),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 9,
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          child: const Center(
+                            child: Text(
+                              'Lihat Cara Meramu',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18.0,
+                              ),
+                            ),
+                          ),
                           decoration: BoxDecoration(
-                            borderRadius:
-                            const BorderRadius.all(Radius.circular(10)),
+                            color: Color(0xff55CB95),
                             border: Border.all(
                               color: Color(0xff55CB95),
                             ),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(10)),
                           ),
                         ),
-                        const SizedBox(
-                          width: 9,
-                        ),
-                        Expanded(
-                          child: Container(
-                            padding: const EdgeInsets.all(10),
-                            child: const Center(
-                              child: Text(
-                                'Lihat Cara Meramu',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18.0,
-                                ),
-                              ),
-                            ),
-                            decoration: BoxDecoration(
-                              color: Color(0xff55CB95),
-                              border: Border.all(
-                                color: Color(0xff55CB95),
-                              ),
-                              borderRadius:
-                              const BorderRadius.all(Radius.circular(10)),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ],
               ),
